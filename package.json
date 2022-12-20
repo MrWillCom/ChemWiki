@@ -1,9 +1,11 @@
 {
 	"dependencies": {
 		"next": "^13.0.7",
+		"nextra": "^2.0.1",
+		"nextra-theme-docs": "^2.0.1",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
-		"nextra": "^2.0.1",
-		"nextra-theme-docs": "^2.0.1"
+		"rehype-katex": "^6.0.2",
+		"remark-math": "^5.1.1"
 	}
 }
