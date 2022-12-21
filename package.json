@@ -1,4 +1,9 @@
 {
+	"scripts": {
+		"start": "next start",
+		"dev": "next dev",
+		"build": "next build"
+	},
 	"dependencies": {
 		"next": "^13.0.7",
 		"nextra": "^2.0.1",
