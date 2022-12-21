@@ -1,5 +1,5 @@
 import remarkMath from "remark-math";
-import rehypeKatex from "rehype-katex";
+import rehypeMathjax from "rehype-mathjax";
 import nextra from "nextra";
 
 const withNextra = nextra({
@@ -7,7 +7,7 @@ const withNextra = nextra({
   themeConfig: "./theme.config.jsx",
   mdxOptions: {
     remarkPlugins: [remarkMath],
-    rehypePlugins: [rehypeKatex],
+    rehypePlugins: [rehypeMathjax],
   },
 });
 

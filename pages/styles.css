@@ -7,3 +7,15 @@ body {
     Helvetica Neue, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji,
     Segoe UI Symbol, Noto Color Emoji;
 }
+
+.math.math-inline {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.math.math-display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+}
