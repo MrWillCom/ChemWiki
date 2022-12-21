@@ -1,7 +1,7 @@
 import { useRouter } from "next/router"
 
 export default {
-  docsRepositoryBase: 'https://github.com/MrWillCom/ChemWiki',
+  docsRepositoryBase: 'https://github.com/MrWillCom/ChemWiki/tree/main',
   logo: <span>ChemWiki</span>,
   project: {
     link: 'https://github.com/MrWillCom/ChemWiki',
