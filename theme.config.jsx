@@ -1,7 +1,17 @@
 import { useRouter } from "next/router"
+import { useConfig } from 'nextra-theme-docs'
 
 export default {
   docsRepositoryBase: 'https://github.com/MrWillCom/ChemWiki/tree/main',
+  head: () => {
+    const { asPath } = useRouter()
+    const { frontMatter, title } = useConfig()
+    return <>
+      <meta property="og:url" content={`https://chemwiki.mrwillcom.com${asPath}`} />
+      <meta property="og:title" content={title + ' · ChemWiki'} />
+      <meta property="og:description" content={frontMatter.description || '中学化学知识库'} />
+    </>
+  },
   logo: <span>ChemWiki</span>,
   project: {
     link: 'https://github.com/MrWillCom/ChemWiki',
