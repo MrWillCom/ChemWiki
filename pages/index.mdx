@@ -12,47 +12,39 @@
 
 本站基于 [Nextra](https://nextra.site/)，你也可以调用其附带的 JSX 组件。另外，你还可以使用 LaTeX 输入公式以及 [Geist UI](https://geist-ui.dev/zh-cn) 的组件。
 
-<br />
+import { Callout, Tab, Tabs } from "nextra-theme-docs";
 
-import { Collapse, Text, Divider, Card, Code } from "@geist-ui/core";
-import { Callout } from "nextra-theme-docs";
+<Tabs items={["Nextra 内建组件", "LaTeX"]}>
+  <Tab>
+    你可以使用 `<Callout />` 强调一些内容，如：
+    <Callout type="warning">
+      该反应是中学化学中唯一一个同时生成烟和雾的反应。
+    </Callout>
+    `<Callout />` 有多重类型，请参阅：[Callout Component -
+    Nextra](https://nextra.site/docs/docs-theme/built-ins/callout)。
+    
+    另外还有 `<Tabs />` 和 `<Tab />` ，请参阅：[Tab Component -
+    Nextra](https://nextra.site/docs/docs-theme/built-ins/tabs)。
+  </Tab>
+  <Tab>
+示例：
 
-<Collapse.Group>
-  <Collapse title="Nextra Theme Docs 内建组件">
-    <Text>
-      你可以使用 `<Callout />` 强调一些内容，如：
-      <Callout type="warning">
-        该反应是中学化学中唯一一个同时生成烟和雾的反应。
-      </Callout>
-      `<Callout />` 有多重类型，请参阅：[Callout Component -
-      Nextra](https://nextra.site/docs/docs-theme/built-ins/callout)。
-      <Divider />
-      另外还有 `<Tabs />` 和 `<Tab />` ，请参阅：[Tab Component -
-      Nextra](https://nextra.site/docs/docs-theme/built-ins/tabs)。
-    </Text>
-  </Collapse>
-  <Collapse title="使用 LaTeX">
-    <Card>
 $\ce{Cl2}$ 与 $\rm SO_2$ $1:1$ 混合，失去漂白作用。
 
 $$
 \ce{SO2 + Cl2 + 2H2O = H2SO4 + 2HCl}
 $$
-      <Card.Footer style={{ padding: "0" }}>
-        <Code block my={0} width={"100%"}>{`\$\ce{Cl2}\$ 与 \$\rm SO_2\$ \$1:1\$ 混合，失去漂白作用。\n
-\$\$
+
+```md
+$\ce{Cl2}$ 与 $\rm SO_2$ $1:1$ 混合，失去漂白作用。
+
+$$
 \ce{SO2 + Cl2 + 2H2O = H2SO4 + 2HCl}
-\$\$`}</Code>
-      </Card.Footer>
-    </Card>
-  </Collapse>
-  <Collapse title="Geist UI 组件">
-    <Text>
-      Geist UI 提供丰富的组件，且风格相似，请参阅：[Geist UI - Modern and
-      minimalist React UI library](https://geist-ui.dev/zh-cn)。
-    </Text>
-  </Collapse>
-</Collapse.Group>
+$$
+```
+
+  </Tab>
+</Tabs>
 
 ## 开发
 
