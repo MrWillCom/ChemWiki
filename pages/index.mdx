@@ -10,28 +10,17 @@ ChemWiki（/kemwɪkɪ/）旨在收集和整理中学化学的各类知识，将�
 
 ## 规范
 
+### 文本
+
 对于一般的中文文案排版，遵循 [sparanoid/chinese-copywriting-guidelines](https://github.com/sparanoid/chinese-copywriting-guidelines) 的方案。
 
-## 编辑
+### 路径
 
-你不需要配置开发环境，可以直接编辑 [MDX](https://mdxjs.com/) 文件，它支持所有 Markdown 语法，还添加了 JSX 支持。
+使用全英文路径，将空格改为 `-`，并全部小写。如 Sulfur Elementary Substance 应写为 `sulfur-elementary-substance`。
 
-本站基于 [Nextra](https://nextra.site/)，你也可以调用其附带的 JSX 组件。另外，你还可以使用 LaTeX 输入公式。
+### 公式（LaTeX）
 
-<Tabs items={["Nextra 内建组件", "LaTeX"]}>
-  <Tab>
-    你可以使用 `<Callout />` 强调一些内容，如：
-    <Callout type="warning">
-      该反应是中学化学中唯一一个同时生成烟和雾的反应。
-    </Callout>
-    `<Callout />` 有多种类型，请参阅：[Callout Component -
-    Nextra](https://nextra.site/docs/docs-theme/built-ins/callout)。
-    
-    另外还有 `<Tabs />` 和 `<Tab />` ，请参阅：[Tab Component -
-    Nextra](https://nextra.site/docs/docs-theme/built-ins/tabs)。
-  </Tab>
-  <Tab>
-示例：
+数学表达式、化学方程式等公式，应使用 LaTeX 表示，如：
 
 $\ce{Cl2}$ 与 $\rm SO_2$ $1:1$ 混合，失去漂白作用。
 
@@ -47,8 +36,19 @@ $$
 $$
 ```
 
-  </Tab>
-</Tabs>
+### 组件
+
+得益于 [Nextra](https://nextra.site/) 的内建组件，你可以使用它们代表更丰富的含义：
+
+如 `<Callout />` 用于强调一些内容：
+
+<Callout type="warning">
+  该反应是中学化学中唯一一个同时生成烟和雾的反应。
+</Callout>
+
+`<Callout />` 有多种类型，请参阅：[Callout Component - Nextra](https://nextra.site/docs/docs-theme/built-ins/callout)。
+
+另外还有 `<Tabs />` 和 `<Tab />` ，请参阅：[Tab Component - Nextra](https://nextra.site/docs/docs-theme/built-ins/tabs)。
 
 ## 开发
 
