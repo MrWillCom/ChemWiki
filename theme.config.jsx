@@ -22,7 +22,7 @@ export default {
     placeholder: '搜索',
   },
   sidebar: {
-    defaultMenuCollapseLevel: 0,
+    defaultMenuCollapseLevel: 1,
   },
   toc: {
     title: null,
