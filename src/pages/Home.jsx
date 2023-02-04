@@ -1,12 +1,15 @@
 import './Home.module.scss'
-import MDX from './Home.mdx'
+import Content from './Home.mdx'
 import Markdown from '../components/Markdown'
+import Container from '../components/Container'
 
 function HomePage() {
   return (
-    <Markdown>
-      <MDX />
-    </Markdown>
+    <Container>
+      <Markdown>
+        <Content />
+      </Markdown>
+    </Container>
   )
 }
 

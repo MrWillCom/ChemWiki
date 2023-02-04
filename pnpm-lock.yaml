@@ -2,6 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@mdx-js/rollup': ^2.2.1
+  '@primer/css': ^20.8.1
   '@primer/react': ^35.19.0
   '@types/react': ^18.0.27
   '@types/react-dom': ^18.0.10
@@ -16,6 +17,7 @@ specifiers:
 
 dependencies:
   '@mdx-js/rollup': 2.2.1
+  '@primer/css': 20.8.1
   '@primer/react': 35.19.0_2zpt4ilzykmne4yndyzrqd4gdm
   github-markdown-css: 5.1.0
   react: 18.2.0
@@ -375,12 +377,48 @@ packages:
     dev: true
     optional: true
 
+  /@github/auto-check-element/5.2.0:
+    resolution: {integrity: sha512-YODZZUSeoZVJQ04p73MAohrEK37SJlVRDUTaFiPYse9K3z3bNEm+ekq5qYCIyDKGgX7hUhr3WZF35qHxr/zu0Q==}
+    dependencies:
+      '@github/mini-throttle': 1.0.7
+    dev: false
+
+  /@github/auto-complete-element/3.3.4:
+    resolution: {integrity: sha512-b9SBCLIQGfCI3G0pGYE8rBSUDON5iFKUgHXgAtVdgZii0dnLFxNl5tn1R/RaBEFdzBQPDl9vqu41TF/Hs3w8FA==}
+    dependencies:
+      '@github/combobox-nav': 2.1.7
+    dev: false
+
+  /@github/catalyst/1.6.0:
+    resolution: {integrity: sha512-u8A+DameixqpeyHzvnJWTGj+wfiskQOYHzSiJscCWVfMkIT3rxnbHMtGh3lMthaRY21nbUOK71WcsCnCrXhBJQ==}
+    dev: false
+
+  /@github/clipboard-copy-element/1.1.2:
+    resolution: {integrity: sha512-L6CMrcA5we0udafvoSuRCE/Ci/3xrLWKYRGup2IlhxF771bQYsQ2EB1of182pI8ZWM4oxgwzu37+igMeoZjN/A==}
+    dev: false
+
   /@github/combobox-nav/2.1.7:
     resolution: {integrity: sha512-Webx0W5iTpkk5Chy9dB/1BEUORQ0qrwui8HaaVBiy75W2VOJg96WTuKj1rXENAJ3XTMhdEF53bn0LYfvP0EKvg==}
     dev: false
 
+  /@github/details-menu-element/1.0.13:
+    resolution: {integrity: sha512-gMkii86w/oUP5dq8yOWZn1sgbgtFj3AYETxxtpsqRggZktgd8te4+npAn4Hm+936c/lxmEzXqfjARL/CzGR4+w==}
+    dev: false
+
+  /@github/image-crop-element/5.0.0:
+    resolution: {integrity: sha512-Vgm2OwWAs1ESoib/t5sjxsAYo6YTOxxAjWDRxswX7qrqoyCejTZ3hshdo4Ep5e+Mz/GVTZC3rdMtg06dk/eT4g==}
+    dev: false
+
   /@github/markdown-toolbar-element/2.1.1:
     resolution: {integrity: sha512-J++rpd5H9baztabJQB82h26jtueOeBRSTqetk9Cri+Lj/s28ndu6Tovn0uHQaOKtBWDobFunk9b5pP5vcqt7cA==}
+    dev: false
+
+  /@github/mini-throttle/1.0.7:
+    resolution: {integrity: sha512-1fzCDXpxI4J59pNmO0r0Y1g+R8Sa2B5ersce8AuFu5STMu7b++9osdedK0zWduYowBIgsPQZihJBN19WrAF64g==}
+    dev: false
+
+  /@github/mini-throttle/2.1.0:
+    resolution: {integrity: sha512-iEeR2OdVCPkdIPUszL8gJnKNu4MR8ANh7y0u/LPyaatYezgaWxUZEzhFntloqQq+HE6MZkFy+cl+xzCNuljOdw==}
     dev: false
 
   /@github/paste-markdown/1.4.2:
@@ -389,6 +427,10 @@ packages:
 
   /@github/relative-time-element/4.2.0:
     resolution: {integrity: sha512-mMzSPR9mzQoECjpz9Vl5F2jAs3HzwXtCH2MQdbliPit16DQMUiwCSPrkgeSKsV828foWF24N49qAWw+CosVJ2g==}
+    dev: false
+
+  /@github/tab-container-element/3.2.0:
+    resolution: {integrity: sha512-to5ZJuywKK3KX53X1ifOcWjvUTQcBGdQ6Qkhm8L97xQ3ovICag1048M3YMpc+QSdr8xWeCBMnLeMnENqotB0Og==}
     dev: false
 
   /@jridgewell/gen-mapping/0.3.2:
@@ -466,6 +508,14 @@ packages:
     resolution: {integrity: sha512-aMRDUQ350lk0FxtL5gJWPFHHOSSzDbJ6uNJVIt8XSqiGe1pxuW5mVVfrEp1uvzZ0pCHkCdm9fycjnfOeMeIrOQ==}
     dev: false
 
+  /@primer/css/20.8.1:
+    resolution: {integrity: sha512-V2CdyehHCYLjFqt2+apQD2bQPrvMjmWGv/eA/A69/C1KiJvhlz5zp1sP+WW7l9EHhBkXy4bhFJ/YEML00nbG9g==}
+    engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
+    dependencies:
+      '@primer/primitives': 7.10.0
+      '@primer/view-components': 0.0.117
+    dev: false
+
   /@primer/octicons-react/17.11.1_react@18.2.0:
     resolution: {integrity: sha512-JGBgAHXKwzuPoOtys3ddmfD2h8GVhU9YwQgxLQD04+IGIgG8FfeXuGREfpIGQNszU4cPZtqw9dST9IONeUb0oQ==}
     engines: {node: '>=8'}
@@ -514,6 +564,21 @@ packages:
       react-intersection-observer: 9.4.1_react@18.2.0
       styled-components: 5.3.6_biqbaboplfbrettd7655fr4n2y
       styled-system: 5.1.5
+    dev: false
+
+  /@primer/view-components/0.0.117:
+    resolution: {integrity: sha512-srCp6BeSaCSELxvD6P+xp8/NGtiHoj9iY4y9duI1SS5wdc11JtaCXm5Iq/8SQaFZ9ONaIQnyeAveSuUCE7Jb8A==}
+    dependencies:
+      '@github/auto-check-element': 5.2.0
+      '@github/auto-complete-element': 3.3.4
+      '@github/catalyst': 1.6.0
+      '@github/clipboard-copy-element': 1.1.2
+      '@github/details-menu-element': 1.0.13
+      '@github/image-crop-element': 5.0.0
+      '@github/mini-throttle': 2.1.0
+      '@github/relative-time-element': 4.2.0
+      '@github/tab-container-element': 3.2.0
+      '@primer/behaviors': 1.3.1
     dev: false
 
   /@react-aria/ssr/3.4.1_react@18.2.0:

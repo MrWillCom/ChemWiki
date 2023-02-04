@@ -1,0 +1,10 @@
+.container {
+  --container-width: 800px;
+  padding: 16px;
+  margin: auto;
+  max-width: var(--container-width);
+
+  &.lg {
+    --container-width: 1000px;
+  }
+}

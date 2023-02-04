@@ -1,0 +1,41 @@
+@use 'sass:math';
+$cellPadding: 6px;
+
+@import '@primer/css/support/index.scss';
+
+.table {
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(18, 1fr);
+  gap: 2px;
+  margin-bottom: 2px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.cell {
+  padding: $cellPadding;
+  border: var(--primer-borderWidth-thin, 1px) solid var(--color-border-default);
+  background-color: var(--color-canvas-default);
+  cursor: default;
+  transition: 0.15s cubic-bezier(0, 0.5, 0, 1) 0s transform;
+
+  &:hover {
+    transform: scale(1.5);
+  }
+}
+
+.spacer {
+  font-size: $h6-size;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: default;
+
+  &.noBorder {
+  }
+}
