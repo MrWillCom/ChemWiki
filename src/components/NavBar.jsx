@@ -21,7 +21,7 @@ function UnderlineNavItem({ to, children, ...rest }) {
 function NavBar() {
   return (
     <Box sx={{ width: '100%' }}>
-      <UnderlineNav sx={{ maxWidth: 1000, margin: 'auto' }}>
+      <UnderlineNav sx={{ maxWidth: 800, margin: 'auto' }}>
         <UnderlineNavItem to="/">ChemWiki</UnderlineNavItem>
         <UnderlineNavItem to="/definitions">定义</UnderlineNavItem>
         <UnderlineNavItem to="/elements">元素</UnderlineNavItem>

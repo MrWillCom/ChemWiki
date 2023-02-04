@@ -1,8 +1,13 @@
 import './Home.module.scss'
-import { Pagehead } from '@primer/react'
+import MDX from './Home.mdx'
+import Markdown from '../components/Markdown'
 
 function HomePage() {
-  return <Pagehead>ChemWiki Home Page</Pagehead>
+  return (
+    <Markdown>
+      <MDX />
+    </Markdown>
+  )
 }
 
 export default HomePage

@@ -14,9 +14,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <NavBar />
           <Box
             sx={{
-              paddingLeft: 16,
-              paddingRight: 16,
-              maxWidth: 1000,
+              padding: '16px',
+              maxWidth: 800,
               margin: 'auto',
             }}
           >
