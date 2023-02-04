@@ -1,11 +1,8 @@
 import './Home.module.scss'
+import { Pagehead } from '@primer/react'
 
 function HomePage() {
-  return (
-    <>
-      <h1>Working in Progress...</h1>
-    </>
-  )
+  return <Pagehead>ChemWiki Home Page</Pagehead>
 }
 
 export default HomePage
