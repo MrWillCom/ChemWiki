@@ -68,9 +68,42 @@ $cellPadding: 2px 4px;
   cursor: default;
 
   &.highlight {
-    border: var(--primer-borderWidth-thin, 1px) solid
-      var(--color-border-default);
+    border: 1px solid var(--color-border-default);
     background-color: var(--color-canvas-inset);
+  }
+}
+
+.elementDisplay {
+  display: flex;
+  cursor: default;
+
+  .left {
+    .symbol {
+      width: 120px;
+      height: 120px;
+      font-size: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid var(--color-border-default);
+    }
+  }
+
+  .right {
+    margin-left: 12px;
+    padding: 0 12px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px 6px;
+
+    .dataKey {
+      text-align: right;
+      color: var(--color-fg-muted);
+      font-weight: $font-weight-bold;
+    }
+
+    .value {
+    }
   }
 }
 
@@ -85,6 +118,6 @@ $cellPadding: 2px 4px;
   }
 
   .display {
-    width: 100%;
+    margin-right: 16px;
   }
 }

@@ -1,7 +1,9 @@
 import styles from './PeriodicTable.module.scss'
 import elements from '../data/elements'
-import { SegmentedControl, FormControl } from '@primer/react'
+import { SegmentedControl, FormControl, Button } from '@primer/react'
+import { BookIcon } from '@primer/octicons-react'
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function generateTable(symbol, selectedElement, setSelectedElement) {
   var table = [
@@ -101,9 +103,28 @@ function Spacer({ label, className, highlight, ...props }) {
 function ElementDisplay({ atomicNumber, className }) {
   const element = elements[atomicNumber - 1]
 
+  function Data({ dataKey, value }) {
+    return (
+      <>
+        <div className={styles.dataKey}>{dataKey}</div>
+        <div className={styles.value}>{value}</div>
+      </>
+    )
+  }
+
   return (
     <div className={styles.elementDisplay + (className ? ' ' + className : '')}>
-      {JSON.stringify(element)}
+      <div className={styles.left}>
+        <div className={styles.symbol}>{element.symbol}</div>
+      </div>
+      <div className={styles.right}>
+        <Data dataKey="序数" value={element.atomicNumber} />
+        <Data dataKey="名称" value={element.name} />
+        <Data dataKey="英文名称" value={element.englishName} />
+        <Data dataKey="族" value={element.group} />
+        <Data dataKey="周期" value={element.period} />
+        <Data dataKey="相对原子质量" value={element.atomicMass} />
+      </div>
     </div>
   )
 }
@@ -147,6 +168,15 @@ function PeriodicTable() {
           atomicNumber={selectedElement}
           className={styles.display}
         />
+        <div className={styles.actions}>
+          <Button
+            leadingIcon={BookIcon}
+            as={Link}
+            to={elements[selectedElement - 1].symbol}
+          >
+            阅读文档
+          </Button>
+        </div>
       </div>
     </>
   )
