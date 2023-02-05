@@ -4,6 +4,7 @@ import { SegmentedControl, FormControl, Button } from '@primer/react'
 import { BookIcon } from '@primer/octicons-react'
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Cookies from 'js-cookie'
 
 function generateTable(symbol, selectedElement, setSelectedElement) {
   var table = [
@@ -75,11 +76,11 @@ function Element({ atomicNumber, symbol, active, ...props }) {
       {...props}
     >
       <span className={styles.atomicNumber}>{element.atomicNumber}</span>
-      {symbol === 0 ? (
+      {symbol === 'symbol' ? (
         <span className={styles.symbol}>{element.symbol}</span>
-      ) : (
+      ) : symbol === 'name' ? (
         <span className={styles.name}>{element.name}</span>
-      )}
+      ) : null}
       <span className={styles.atomicMass}>{element.atomicMass}</span>
     </button>
   )
@@ -130,11 +131,21 @@ function ElementDisplay({ atomicNumber, className }) {
 }
 
 function PeriodicTable() {
-  const [selectedElement, setSelectedElement] = React.useState(1)
+  const [selectedElement, setSelectedElement] = React.useState(
+    Cookies.get('ptEl') ? parseInt(Cookies.get('ptEl'), 10) : 1,
+  )
+  function changeSelectedElement(val) {
+    setSelectedElement(val)
+    Cookies.set('ptEl', val, { expires: 14 })
+  }
 
-  const [selectedSymbol, setSelectedSymbol] = React.useState(0)
+  const [selectedSymbol, setSelectedSymbol] = React.useState(
+    Cookies.get('ptSymbol') ? Cookies.get('ptSymbol') : 'symbol',
+  )
   const handleSymbolSegmentChange = selectedSymbol => {
-    setSelectedSymbol(selectedSymbol)
+    const s = ['symbol', 'name'][selectedSymbol]
+    setSelectedSymbol(s)
+    Cookies.set('ptSymbol', s, { expires: 14 })
   }
 
   return (
@@ -143,7 +154,7 @@ function PeriodicTable() {
         {generateTable(
           selectedSymbol,
           selectedElement,
-          setSelectedElement,
+          changeSelectedElement,
         ).flat()}
       </div>
       <div className={styles.controls}>
@@ -155,10 +166,10 @@ function PeriodicTable() {
               size="small"
               onChange={handleSymbolSegmentChange}
             >
-              <SegmentedControl.Button selected={selectedSymbol === 0}>
+              <SegmentedControl.Button selected={selectedSymbol === 'symbol'}>
                 元素符号
               </SegmentedControl.Button>
-              <SegmentedControl.Button selected={selectedSymbol === 1}>
+              <SegmentedControl.Button selected={selectedSymbol === 'name'}>
                 元素名称
               </SegmentedControl.Button>
             </SegmentedControl>

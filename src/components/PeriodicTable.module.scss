@@ -110,6 +110,7 @@ $cellPadding: 2px 4px;
 .controls {
   margin-top: 24px;
   display: flex;
+  justify-content: space-between;
 
   .options {
     width: max-content;
