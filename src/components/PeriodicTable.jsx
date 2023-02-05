@@ -13,11 +13,12 @@ function generateTable(symbol, selectedElement, setSelectedElement) {
     [[11, 12], 'spacer', [13, 18]],
     [[19, 36]],
     [[37, 54]],
-    [[55, 56], <Spacer label="57-71" highlight />, [72, 86]],
-    [[87, 88], <Spacer label="89-103" highlight />, [104, 118]],
+    [[55, 56], <Spacer label="57-71" highlight key="l0" />, [72, 86]],
+    [[87, 88], <Spacer label="89-103" highlight key="l1" />, [104, 118]],
     ['spacer', [57, 71]],
     ['spacer', [89, 103]],
   ]
+  var spacerKey = 0
 
   table = table.map(row => {
     var newRow = []
@@ -31,6 +32,7 @@ function generateTable(symbol, selectedElement, setSelectedElement) {
             onClick={() => {
               setSelectedElement(cell)
             }}
+            key={cell}
           />,
         )
       } else if (Array.isArray(cell)) {
@@ -43,6 +45,7 @@ function generateTable(symbol, selectedElement, setSelectedElement) {
               onClick={() => {
                 setSelectedElement(i)
               }}
+              key={i}
             />,
           )
         }
@@ -55,7 +58,8 @@ function generateTable(symbol, selectedElement, setSelectedElement) {
       newRow[newRow.findIndex(cell => cell === 'spacer')] = (l => {
         var arr = []
         for (let i = 0; i < l; i++) {
-          arr.push(<Spacer />)
+          arr.push(<Spacer key={'s' + spacerKey} />)
+          spacerKey++
         }
         return arr
       })(18 - newRow.length + 1) // extra `1` is for the placeholder `'spacer'`
@@ -64,7 +68,7 @@ function generateTable(symbol, selectedElement, setSelectedElement) {
     return newRow.flat()
   })
 
-  return table
+  return table.flat()
 }
 
 function Element({ atomicNumber, symbol, active, ...props }) {
@@ -151,11 +155,7 @@ function PeriodicTable() {
   return (
     <>
       <div className={styles.table}>
-        {generateTable(
-          selectedSymbol,
-          selectedElement,
-          changeSelectedElement,
-        ).flat()}
+        {generateTable(selectedSymbol, selectedElement, changeSelectedElement)}
       </div>
       <div className={styles.controls}>
         <div className={styles.options}>
