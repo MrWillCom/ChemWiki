@@ -20,7 +20,7 @@ $cellPadding: 2px 4px;
   cursor: default;
   transition-duration: 0.15s;
   transition-timing-function: cubic-bezier(0, 0.5, 0, 1);
-  transition-property: transform, border, background-color;
+  transition-property: transform, border, background-color, box-shadow;
 
   &:hover,
   &:focus-visible {
