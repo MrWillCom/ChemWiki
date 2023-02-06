@@ -1,0 +1,25 @@
+.nav {
+  background-color: var(--color-nav-background);
+  display: flex;
+  height: 48px;
+  padding: 0 6px;
+}
+
+.navItem {
+  color: var(--color-nav-text);
+  text-decoration: none;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition-duration: 0.2s;
+  transition-property: color;
+
+  &:hover,
+  &:focus-visible {
+    color: var(--color-nav-text-hover);
+  }
+
+  &.active::after {
+  }
+}

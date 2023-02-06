@@ -1,11 +1,19 @@
+@import 'lxgw-wenkai-webfont/style.css';
+@import 'normalize.css/normalize.css';
+
 :root {
   --color-body-text: #0f172a;
   --color-body-background: #fff;
+  --color-nav-text: #6e7781;
+  --color-nav-text-hover: var(--color-body-text);
+  --color-nav-background: var(--color-body-background);
 
   @media (prefers-color-scheme: dark) {
     & {
       --color-body-text: #f1f5f9;
       --color-body-background: #111;
+
+      --color-nav-text: #a2a9b3;
     }
   }
 }
