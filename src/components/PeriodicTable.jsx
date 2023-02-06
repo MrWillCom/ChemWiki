@@ -1,10 +1,8 @@
 import styles from './PeriodicTable.module.scss'
-import elements from '../data/elements'
-import { SegmentedControl, FormControl, Button } from '@primer/react'
-import { BookIcon } from '@primer/octicons-react'
-import React from 'react'
-import { Link } from 'react-router-dom'
-import Cookies from 'js-cookie'
+import elements from '@/data/elements'
+import Segment from './Segment'
+import Link from 'next/link'
+import useCookie from '@/utilities/useCookie'
 
 function generateTable(symbol, selectedElement, setSelectedElement) {
   var table = [
@@ -135,58 +133,37 @@ function ElementDisplay({ atomicNumber, className }) {
 }
 
 function PeriodicTable() {
-  const [selectedElement, setSelectedElement] = React.useState(
-    Cookies.get('ptEl') ? parseInt(Cookies.get('ptEl'), 10) : 1,
-  )
-  function changeSelectedElement(val) {
-    setSelectedElement(val)
-    Cookies.set('ptEl', val, { expires: 14 })
-  }
+  const [selectedElement, setSelectedElement] = useCookie('ptEl', 1, val => {
+    return parseInt(val, 10)
+  })
 
-  const [selectedSymbol, setSelectedSymbol] = React.useState(
-    Cookies.get('ptSymbol') ? Cookies.get('ptSymbol') : 'symbol',
-  )
+  const [selectedSymbol, setSelectedSymbol] = useCookie('ptSymbol', 'symbol')
+
   const handleSymbolSegmentChange = selectedSymbol => {
     const s = ['symbol', 'name'][selectedSymbol]
     setSelectedSymbol(s)
-    Cookies.set('ptSymbol', s, { expires: 14 })
   }
 
   return (
     <>
       <div className={styles.table}>
-        {generateTable(selectedSymbol, selectedElement, changeSelectedElement)}
+        {generateTable(selectedSymbol, selectedElement, setSelectedElement)}
       </div>
       <div className={styles.controls}>
         <div className={styles.options}>
-          <FormControl>
-            <FormControl.Label>符号显示</FormControl.Label>
-            <SegmentedControl
-              aria-label="Symbol display"
-              size="small"
-              onChange={handleSymbolSegmentChange}
-            >
-              <SegmentedControl.Button selected={selectedSymbol === 'symbol'}>
-                元素符号
-              </SegmentedControl.Button>
-              <SegmentedControl.Button selected={selectedSymbol === 'name'}>
-                元素名称
-              </SegmentedControl.Button>
-            </SegmentedControl>
-          </FormControl>
+          <Segment onChange={setSelectedSymbol}>
+            <Segment.Button value="symbol">元素符号</Segment.Button>
+            <Segment.Button value="name">元素名称</Segment.Button>
+          </Segment>
         </div>
         <ElementDisplay
           atomicNumber={selectedElement}
           className={styles.display}
         />
         <div className={styles.actions}>
-          <Button
-            leadingIcon={BookIcon}
-            as={Link}
-            to={elements[selectedElement - 1].symbol}
-          >
+          <Link href={'/elements/' + elements[selectedElement - 1].symbol}>
             阅读文档
-          </Button>
+          </Link>
         </div>
       </div>
     </>

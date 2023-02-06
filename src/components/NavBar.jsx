@@ -1,44 +1,27 @@
-import { Link, useMatch, useResolvedPath } from 'react-router-dom'
-import { Box } from '@primer/react'
-import { UnderlineNav } from '@primer/react/drafts'
+import styles from './NavBar.module.scss'
+import Link from 'next/link'
 
-// https://primer.style/react/drafts/UnderlineNav2#with-react-router
-function UnderlineNavItem({ to, children, ...rest }) {
-  const resolved = useResolvedPath(to)
-  const isCurrent = useMatch({ path: resolved.pathname, end: true })
+function NavigationItem({ className, children, ...props }) {
   return (
-    <UnderlineNav.Item
-      as={Link}
-      to={to}
-      aria-current={isCurrent ? 'page' : undefined}
-      {...rest}
+    <Link
+      className={styles.navItem + (className ? ' ' + className : '')}
+      {...props}
     >
       {children}
-    </UnderlineNav.Item>
+    </Link>
   )
 }
 
 function NavBar() {
   return (
-    <Box
-      sx={{
-        width: '100%',
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        right: 0,
-        backgroundColor: 'var(--color-canvas-default)',
-      }}
-    >
-      <UnderlineNav sx={{ maxWidth: 800, margin: 'auto' }}>
-        <UnderlineNavItem to="/">ChemWiki</UnderlineNavItem>
-        <UnderlineNavItem to="/definitions">定义</UnderlineNavItem>
-        <UnderlineNavItem to="/elements">元素</UnderlineNavItem>
-        <UnderlineNavItem to="/substances">物质</UnderlineNavItem>
-        <UnderlineNavItem to="/experiments">实验</UnderlineNavItem>
-        <UnderlineNavItem to="/appendix">附录</UnderlineNavItem>
-      </UnderlineNav>
-    </Box>
+    <nav className={styles.nav}>
+      <NavigationItem href="/">ChemWiki</NavigationItem>
+      <NavigationItem href="/definitions">定义</NavigationItem>
+      <NavigationItem href="/elements">元素</NavigationItem>
+      <NavigationItem href="/substances">物质</NavigationItem>
+      <NavigationItem href="/experiments">实验</NavigationItem>
+      <NavigationItem href="/appendix">附录</NavigationItem>
+    </nav>
   )
 }
 

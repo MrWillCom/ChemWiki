@@ -1,8 +1,6 @@
 @use 'sass:math';
 $cellPadding: 2px 4px;
 
-@import '@primer/css/support/index.scss';
-
 .table {
   display: grid;
   grid-template-columns: repeat(18, 1fr);
@@ -61,7 +59,7 @@ $cellPadding: 2px 4px;
 }
 
 .spacer {
-  font-size: $h6-size;
+  font-size: 12px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -99,7 +97,7 @@ $cellPadding: 2px 4px;
     .dataKey {
       text-align: right;
       color: var(--color-fg-muted);
-      font-weight: $font-weight-bold;
+      font-weight: 600;
     }
 
     .value {
