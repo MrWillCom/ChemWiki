@@ -1,12 +1,18 @@
+@use 'sass:color';
 @import 'lxgw-wenkai-webfont/style.css';
 @import 'normalize.css/normalize.css';
 
 :root {
   --color-body-text: #0f172a;
   --color-body-background: #fff;
+  --color-accent: #00a1ff;
+  --color-accent-highlight-background: #00a1ff40;
+  --height-nav: 48px;
   --color-nav-text: #6e7781;
   --color-nav-text-hover: var(--color-body-text);
   --color-nav-background: var(--color-body-background);
+  --color-nav-border: #0f172a1a;
+  --color-nav-highlight-background: var(--color-accent-highlight-background);
 
   @media (prefers-color-scheme: dark) {
     & {
