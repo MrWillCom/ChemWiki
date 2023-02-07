@@ -20,11 +20,22 @@ function Segment({ children, className, onChange, ...props }) {
   )
 }
 
-function SegmentButton({ children, className, value, onClick, ...props }) {
+function SegmentButton({
+  children,
+  className,
+  value,
+  onClick,
+  selected,
+  ...props
+}) {
   return (
     <li className={styles.segmentItem}>
       <button
-        className={styles.segmentButton + (className ? ' ' + className : '')}
+        className={
+          styles.segmentButton +
+          (selected ? ' ' + styles.selected : '') +
+          (className ? ' ' + className : '')
+        }
         value={value}
         onClick={onClick}
         {...props}

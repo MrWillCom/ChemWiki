@@ -147,8 +147,15 @@ function PeriodicTable() {
       <div className={styles.controls}>
         <div className={styles.options}>
           <Segment onChange={setSelectedSymbol}>
-            <Segment.Button value="symbol">元素符号</Segment.Button>
-            <Segment.Button value="name">元素名称</Segment.Button>
+            <Segment.Button
+              value="symbol"
+              selected={selectedSymbol === 'symbol'}
+            >
+              元素符号
+            </Segment.Button>
+            <Segment.Button value="name" selected={selectedSymbol === 'name'}>
+              元素名称
+            </Segment.Button>
           </Segment>
         </div>
         <ElementDisplay

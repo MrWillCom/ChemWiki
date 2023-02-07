@@ -15,7 +15,7 @@
 
 .navItem {
   color: var(--color-nav-text);
-  text-decoration: none;
+  text-decoration: none !important;
   padding: 0 10px;
   display: flex;
   align-items: center;

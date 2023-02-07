@@ -35,7 +35,7 @@ $cellPadding: 2px 4px;
   }
 
   .atomicNumber {
-    color: var(--color-fg-muted);
+    color: var(--color-periodic-table-cell-text);
     text-align: left;
     font-size: 12px;
   }
@@ -48,7 +48,7 @@ $cellPadding: 2px 4px;
   }
 
   .atomicMass {
-    color: var(--color-fg-subtle);
+    color: var(--color-periodic-table-cell-text);
     font-size: 10px;
   }
 }
@@ -61,8 +61,8 @@ $cellPadding: 2px 4px;
   cursor: default;
 
   &.highlight {
-    border: 1px solid var(--color-border-default);
-    background-color: var(--color-canvas-inset);
+    border: 1px solid var(--color-periodic-table-spacer-highlight-border);
+    background-color: var(--color-periodic-table-spacer-highlight-background);
   }
 }
 
