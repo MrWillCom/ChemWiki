@@ -5,7 +5,11 @@ function useCookie(key, initialValue, parser) {
   const [state, setState] = useState(initialValue)
 
   useEffect(() => {
-    Cookies.get(key) ? setState(Cookies.get(key)) : null
+    if (Cookies.get(key)) {
+      let value = Cookies.get(key)
+      value = typeof parser === 'function' ? parser(value) : value
+      setState(value)
+    }
   }, [])
 
   function setCookie(value, options) {

@@ -139,11 +139,6 @@ function PeriodicTable() {
 
   const [selectedSymbol, setSelectedSymbol] = useCookie('ptSymbol', 'symbol')
 
-  const handleSymbolSegmentChange = selectedSymbol => {
-    const s = ['symbol', 'name'][selectedSymbol]
-    setSelectedSymbol(s)
-  }
-
   return (
     <>
       <div className={styles.table}>
