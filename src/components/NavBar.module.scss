@@ -34,6 +34,6 @@
   }
 
   &.active span {
-    background-color: var(--color-nav-highlight-background);
+    color: var(--color-nav-text-selected);
   }
 }
