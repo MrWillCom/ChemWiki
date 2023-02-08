@@ -23,7 +23,7 @@ function NavigationItem({ className, children, match, ...props }) {
 function NavBar() {
   return (
     <nav className={styles.nav}>
-      <Container className={styles.navContainer}>
+      <Container className={styles.navContainer} marginY={null} paddingX={null}>
         <NavigationItem href="/" match={/^\/$/}>
           ChemWiki
         </NavigationItem>

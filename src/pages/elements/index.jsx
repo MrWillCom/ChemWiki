@@ -5,7 +5,7 @@ import Main from '@/components/Main'
 function ElementsPage() {
   return (
     <Main>
-      <Container size="lg" marginY={20} paddingX={20}>
+      <Container size="lg">
         <PeriodicTable />
       </Container>
     </Main>

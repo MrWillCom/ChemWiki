@@ -5,8 +5,8 @@ function Container({
   className,
   size,
   marginX,
-  marginY,
-  paddingX,
+  marginY = 16,
+  paddingX = 16,
   paddingY,
   ...props
 }) {
