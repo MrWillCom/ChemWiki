@@ -6,7 +6,7 @@ export default function Document() {
       <Head>
         <meta name="color-scheme" content="light dark" />
       </Head>
-      <body mode="ios">
+      <body>
         <Main />
         <NextScript />
       </body>
