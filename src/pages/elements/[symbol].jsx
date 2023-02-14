@@ -6,10 +6,17 @@ import Container from '@/components/Container'
 import elements from '@/data/elements'
 import styles from './[symbol].module.scss'
 
-function ElementPage() {
+export async function getServerSideProps(context) {
+  return {
+    props: {
+      data: elements.find(x => x.symbol === context.query.symbol),
+    },
+  }
+}
+
+function ElementPage({ data }) {
   const router = useRouter()
   const { symbol } = router.query
-  const data = elements.find(x => x.symbol === symbol)
 
   // FIXME: Couldn't catch the error if the module is not found.
   var Content = <>Document not available.</>

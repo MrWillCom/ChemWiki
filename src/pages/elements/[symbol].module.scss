@@ -4,7 +4,7 @@ $aside-padding-x: 10px;
   padding: 12px $aside-padding-x;
   display: flex;
   justify-content: space-between;
-  border-top: 1px solid #fff1;
+  border-top: 1px solid var(--color-border);
   font-size: 16px;
 
   @media (max-width: 768px) {
@@ -73,6 +73,10 @@ $aside-padding-x: 10px;
 
 .content {
   flex: 1;
+
+  hr {
+    border-color: var(--color-border);
+  }
 
   img {
     max-width: 100%;
