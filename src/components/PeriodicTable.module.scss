@@ -5,7 +5,7 @@ $cellPadding: 2px 4px;
   display: grid;
   grid-template-columns: repeat(18, 1fr);
   gap: 2px;
-  overflow-x: auto;
+  overflow-x: none;
 }
 
 .cell {
