@@ -1,5 +1,6 @@
 @use 'sass:math';
 $cellPadding: 2px 4px;
+$smallScreen: 768px;
 
 .table {
   display: grid;
@@ -80,6 +81,10 @@ $cellPadding: 2px 4px;
       align-items: center;
       justify-content: center;
       border: 2px solid var(--color-border-default);
+
+      @media (max-width: $smallScreen) {
+        width: 80px;
+      }
     }
   }
 
@@ -89,6 +94,11 @@ $cellPadding: 2px 4px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 4px 6px;
+
+    @media (max-width: $smallScreen) {
+      margin-left: 0;
+      padding: 0;
+    }
 
     .dataKey {
       text-align: right;
@@ -105,14 +115,30 @@ $cellPadding: 2px 4px;
   margin-top: 24px;
   display: flex;
   justify-content: space-between;
+  column-gap: 16px;
+
+  @media (max-width: $smallScreen) {
+    flex-direction: column;
+    row-gap: 12px;
+  }
 
   .options {
     width: max-content;
     min-width: max-content;
-    margin-right: 16px;
+
+    @media (max-width: $smallScreen) {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
   }
 
   .display {
-    margin-right: 16px;
+    @media (max-width: $smallScreen) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
   }
 }
