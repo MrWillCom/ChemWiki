@@ -1,36 +1,10 @@
-import dynamic from 'next/dynamic'
-import { useRouter } from 'next/router'
-import Error from 'next/error'
 import Main from '@/components/Main'
 import Container from '@/components/Container'
 import elements from '@/data/elements'
-import styles from './[symbol].module.scss'
+import styles from './_layout.module.scss'
 
-export async function getServerSideProps(context) {
-  return {
-    props: {
-      data: elements.find(x => x.symbol === context.query.symbol),
-    },
-  }
-}
-
-function ElementPage({ data }) {
-  const router = useRouter()
-  const { symbol } = router.query
-
-  // FIXME: Couldn't catch the error if the module is not found.
-  var Content = <>Document not available.</>
-  Content = dynamic(
-    () => import(`@/docs/elements/${symbol}.mdx`).catch(err => <></>),
-    {
-      loading: () => <></>,
-    },
-  )
-
-  // before `data` is ready, the page seems to be 404
-  if (typeof data === 'undefined') {
-    return <Error statusCode={404} />
-  }
+function ElementPageLayout({ symbol, children }) {
+  const data = elements.find(x => x.symbol === symbol)
 
   function DataItem({ label, value, className, ...props }) {
     return (
@@ -60,12 +34,10 @@ function ElementPage({ data }) {
             </div>
           </div>
         </aside>
-        <div className={styles.content}>
-          <Content />
-        </div>
+        <div className={styles.content}>{children}</div>
       </Container>
     </Main>
   )
 }
 
-export default ElementPage
+export default ElementPageLayout

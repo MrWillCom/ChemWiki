@@ -1,11 +1,15 @@
-const withMDX = require('@next/mdx')({
+import rehypeKatex from 'rehype-katex'
+import remarkMath from 'remark-math'
+import nextMDX from '@next/mdx'
+
+const withMDX = nextMDX({
   extension: /\.mdx?$/,
   options: {
     // If you use remark-gfm, you'll need to use next.config.mjs
     // as the package is ESM only
     // https://github.com/remarkjs/remark-gfm#install
-    remarkPlugins: [],
-    rehypePlugins: [],
+    remarkPlugins: [remarkMath],
+    rehypePlugins: [rehypeKatex],
     // If you use `MDXProvider`, uncomment the following line.
     // providerImportSource: "@mdx-js/react",
   },
@@ -13,7 +17,8 @@ const withMDX = require('@next/mdx')({
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
   reactStrictMode: true,
 }
 
-module.exports = withMDX(nextConfig)
+export default withMDX(nextConfig)

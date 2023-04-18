@@ -1,8 +1,11 @@
 @use 'sass:color';
 @import 'lxgw-wenkai-webfont/style.css';
 @import 'normalize.css/normalize.css';
+@import 'katex/dist/katex.css';
 
 :root {
+  --border-radius: 6px;
+
   --color-body-text: #0f172a;
   --color-body-background: #fff;
 
