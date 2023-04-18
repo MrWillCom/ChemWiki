@@ -1,7 +1,7 @@
 import Main from '@/components/Main'
 import Container from '@/components/Container'
 import elements from '@/data/elements'
-import styles from './_layout.module.scss'
+import styles from './ElementPage.module.scss'
 
 function ElementPageLayout({ symbol, children }) {
   const data = elements.find(x => x.symbol === symbol)
