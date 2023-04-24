@@ -2,6 +2,7 @@ import Main from '@/components/Main'
 import Container from '@/components/Container'
 import elements from '@/data/elements'
 import styles from './ElementPage.module.scss'
+import PeriodicTable from '@/components/PeriodicTable'
 
 function ElementPageLayout({ symbol, children }) {
   const data = elements.find(x => x.symbol === symbol)
@@ -32,6 +33,11 @@ function ElementPageLayout({ symbol, children }) {
               <DataItem label="周期" value={data.period} />
               <DataItem label="相对原子质量" value={data.atomicMass} />
             </div>
+            <PeriodicTable
+              mini
+              interactive={false}
+              className={styles.periodicTable}
+            />
           </div>
         </aside>
         <div className={styles.content}>{children}</div>

@@ -71,6 +71,12 @@ $aside-padding-x: 10px;
   }
 }
 
+.periodicTable {
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
 .content {
   flex: 1;
 

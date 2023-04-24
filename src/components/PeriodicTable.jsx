@@ -4,15 +4,29 @@ import Segment from './Segment'
 import Link from 'next/link'
 import useCookie from '@/utilities/useCookie'
 
-function generateTable(symbol, selectedElement, setSelectedElement) {
+function generateTable({
+  symbol,
+  selectedElement,
+  setSelectedElement,
+  mini,
+  interactive,
+}) {
   var table = [
     [1, 'spacer', 2],
     [[3, 4], 'spacer', [5, 10]],
     [[11, 12], 'spacer', [13, 18]],
     [[19, 36]],
     [[37, 54]],
-    [[55, 56], <Spacer label="57-71" highlight key="l0" />, [72, 86]],
-    [[87, 88], <Spacer label="89-103" highlight key="l1" />, [104, 118]],
+    [
+      [55, 56],
+      <Spacer label="57-71" highlight key="l0" mini={mini} />,
+      [72, 86],
+    ],
+    [
+      [87, 88],
+      <Spacer label="89-103" highlight key="l1" mini={mini} />,
+      [104, 118],
+    ],
     ['spacer', [57, 71]],
     ['spacer', [89, 103]],
   ]
@@ -31,6 +45,8 @@ function generateTable(symbol, selectedElement, setSelectedElement) {
               setSelectedElement(cell)
             }}
             key={cell}
+            mini={mini}
+            interactive={interactive}
           />,
         )
       } else if (Array.isArray(cell)) {
@@ -44,6 +60,8 @@ function generateTable(symbol, selectedElement, setSelectedElement) {
                 setSelectedElement(i)
               }}
               key={i}
+              mini={mini}
+              interactive={interactive}
             />,
           )
         }
@@ -56,7 +74,7 @@ function generateTable(symbol, selectedElement, setSelectedElement) {
       newRow[newRow.findIndex(cell => cell === 'spacer')] = (l => {
         var arr = []
         for (let i = 0; i < l; i++) {
-          arr.push(<Spacer key={'s' + spacerKey} />)
+          arr.push(<Spacer key={'s' + spacerKey} mini={mini} />)
           spacerKey++
         }
         return arr
@@ -69,26 +87,40 @@ function generateTable(symbol, selectedElement, setSelectedElement) {
   return table.flat()
 }
 
-function Element({ atomicNumber, symbol, active, ...props }) {
+function Element({
+  atomicNumber,
+  symbol,
+  active,
+  mini,
+  interactive,
+  ...props
+}) {
   const element = elements[atomicNumber - 1]
 
   return (
     <button
       className={styles.cell + (active ? ' ' + styles.active : '')}
+      disabled={!interactive}
       {...props}
     >
-      <span className={styles.atomicNumber}>{element.atomicNumber}</span>
-      {symbol === 'symbol' ? (
-        <span className={styles.symbol}>{element.symbol}</span>
-      ) : symbol === 'name' ? (
-        <span className={styles.name}>{element.name}</span>
-      ) : null}
-      <span className={styles.atomicMass}>{element.atomicMass}</span>
+      {mini ? (
+        <></>
+      ) : (
+        <>
+          <span className={styles.atomicNumber}>{element.atomicNumber}</span>
+          {symbol === 'symbol' ? (
+            <span className={styles.symbol}>{element.symbol}</span>
+          ) : symbol === 'name' ? (
+            <span className={styles.name}>{element.name}</span>
+          ) : null}
+          <span className={styles.atomicMass}>{element.atomicMass}</span>
+        </>
+      )}
     </button>
   )
 }
 
-function Spacer({ label, className, highlight, ...props }) {
+function Spacer({ label, className, highlight, mini, ...props }) {
   return (
     <div
       className={
@@ -98,7 +130,7 @@ function Spacer({ label, className, highlight, ...props }) {
       }
       {...props}
     >
-      {label}
+      {mini ? null : label}
     </div>
   )
 }
@@ -132,7 +164,7 @@ function ElementDisplay({ atomicNumber, className }) {
   )
 }
 
-function PeriodicTable() {
+function PeriodicTable({ className, mini, interactive = true }) {
   const [selectedElement, setSelectedElement] = useCookie('ptEl', 1, val => {
     return parseInt(val, 10)
   })
@@ -141,33 +173,49 @@ function PeriodicTable() {
 
   return (
     <>
-      <div className={styles.table}>
-        {generateTable(selectedSymbol, selectedElement, setSelectedElement)}
+      <div
+        className={
+          styles.table +
+          (className ? ' ' + className : '') +
+          (mini ? ' ' + styles.mini : '')
+        }
+      >
+        {generateTable({
+          symbol: selectedSymbol,
+          selectedElement,
+          setSelectedElement,
+          mini,
+          interactive,
+        })}
       </div>
-      <div className={styles.controls}>
-        <div className={styles.options}>
-          <Segment onChange={setSelectedSymbol}>
-            <Segment.Button
-              value="symbol"
-              selected={selectedSymbol === 'symbol'}
-            >
-              元素符号
-            </Segment.Button>
-            <Segment.Button value="name" selected={selectedSymbol === 'name'}>
-              元素名称
-            </Segment.Button>
-          </Segment>
+      {mini ? (
+        <></>
+      ) : (
+        <div className={styles.controls}>
+          <div className={styles.options}>
+            <Segment onChange={setSelectedSymbol}>
+              <Segment.Button
+                value="symbol"
+                selected={selectedSymbol === 'symbol'}
+              >
+                元素符号
+              </Segment.Button>
+              <Segment.Button value="name" selected={selectedSymbol === 'name'}>
+                元素名称
+              </Segment.Button>
+            </Segment>
+          </div>
+          <ElementDisplay
+            atomicNumber={selectedElement}
+            className={styles.display}
+          />
+          <div className={styles.actions}>
+            <Link href={'/elements/' + elements[selectedElement - 1].symbol}>
+              阅读文档
+            </Link>
+          </div>
         </div>
-        <ElementDisplay
-          atomicNumber={selectedElement}
-          className={styles.display}
-        />
-        <div className={styles.actions}>
-          <Link href={'/elements/' + elements[selectedElement - 1].symbol}>
-            阅读文档
-          </Link>
-        </div>
-      </div>
+      )}
     </>
   )
 }
