@@ -3,6 +3,7 @@ import Container from '@/components/Container'
 import elements from '@/data/elements'
 import styles from './ElementPage.module.scss'
 import PeriodicTable from '@/components/PeriodicTable'
+import ElementGroup from '@/components/ElementGroup'
 
 function ElementPageLayout({ symbol, children }) {
   const data = elements.find(x => x.symbol === symbol)
@@ -29,7 +30,7 @@ function ElementPageLayout({ symbol, children }) {
               <DataItem label="名称" value={data.name} />
               <DataItem label="英文名称" value={data.englishName} />
               <DataItem label="序数" value={data.atomicNumber} />
-              <DataItem label="族" value={data.group} />
+              <DataItem label="族" value={<ElementGroup n={data.group} />} />
               <DataItem label="周期" value={data.period} />
               <DataItem label="相对原子质量" value={data.atomicMass} />
             </div>

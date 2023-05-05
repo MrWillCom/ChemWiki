@@ -3,6 +3,7 @@ import elements from '@/data/elements'
 import Segment from './Segment'
 import Link from 'next/link'
 import useCookie from '@/utilities/useCookie'
+import ElementGroup from './ElementGroup'
 
 function generateTable({
   symbol,
@@ -156,7 +157,7 @@ function ElementDisplay({ atomicNumber, className }) {
         <Data dataKey="序数" value={element.atomicNumber} />
         <Data dataKey="名称" value={element.name} />
         <Data dataKey="英文名称" value={element.englishName} />
-        <Data dataKey="族" value={element.group} />
+        <Data dataKey="族" value={<ElementGroup n={element.group} />} />
         <Data dataKey="周期" value={element.period} />
         <Data dataKey="相对原子质量" value={element.atomicMass} />
       </div>
