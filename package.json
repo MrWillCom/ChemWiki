@@ -9,7 +9,7 @@
     "@mdx-js/loader": "^2.3.0",
     "@mdx-js/react": "^2.3.0",
     "@next/font": "13.1.6",
-    "@next/mdx": "^13.4.1",
+    "@next/mdx": "^13.4.6",
     "js-cookie": "^3.0.5",
     "katex": "^0.16.7",
     "lxgw-wenkai-webfont": "^1.7.0",
@@ -19,6 +19,6 @@
     "react-dom": "18.2.0",
     "rehype-katex": "^6.0.3",
     "remark-math": "^5.1.1",
-    "sass": "^1.62.1"
+    "sass": "^1.63.5"
   }
 }
