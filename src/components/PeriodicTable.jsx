@@ -110,7 +110,9 @@ function Element({
         <>
           <span className={styles.atomicNumber}>{element.atomicNumber}</span>
           {symbol === 'symbol' ? (
-            <span className={styles.symbol}>{element.symbol}</span>
+            <span className={`${styles.symbol} katex mathnormal`}>
+              {element.symbol}
+            </span>
           ) : symbol === 'name' ? (
             <span className={styles.name}>{element.name}</span>
           ) : null}
@@ -151,7 +153,9 @@ function ElementDisplay({ atomicNumber, className }) {
   return (
     <div className={styles.elementDisplay + (className ? ' ' + className : '')}>
       <div className={styles.left}>
-        <div className={styles.symbol}>{element.symbol}</div>
+        <div className={`${styles.symbol} katex mathnormal`}>
+          {element.symbol}
+        </div>
       </div>
       <div className={styles.right}>
         <Data dataKey="序数" value={element.atomicNumber} />

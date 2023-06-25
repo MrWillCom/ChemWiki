@@ -25,7 +25,9 @@ function ElementPageLayout({ symbol, children }) {
       <Container size="lg" className={styles.splitView}>
         <aside className={styles.aside}>
           <div className={styles.basics}>
-            <h1 className={styles.title}>{data.symbol}</h1>
+            <h1 className={`${styles.title} katex mathnormal`}>
+              {data.symbol}
+            </h1>
             <div className={styles.data}>
               <DataItem label="名称" value={data.name} />
               <DataItem label="英文名称" value={data.englishName} />
