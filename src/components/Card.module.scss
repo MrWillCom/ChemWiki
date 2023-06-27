@@ -1,0 +1,23 @@
+.card {
+  border-radius: var(--border-radius);
+  border: 1px solid var(--color-card-border);
+  box-shadow: var(--shadow-small);
+}
+.cardBody,
+.cardHeader,
+.cardFooter {
+  padding: var(--card-padding);
+}
+
+.cardBody {
+}
+
+.cardHeader {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.cardFooter {
+  border-top: 1px solid var(--color-card-border);
+  font-size: 14px;
+}

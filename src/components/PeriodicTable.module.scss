@@ -26,7 +26,7 @@ $smallScreen: 768px;
   &:hover:not(:disabled),
   &:focus-visible:not(:disabled) {
     transform: scale(1.5);
-    box-shadow: var(--color-shadow-large);
+    box-shadow: var(--shadow-large);
   }
   &:active:not(:disabled) {
     transform: scale(1.2);

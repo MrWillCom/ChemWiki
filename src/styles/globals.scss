@@ -24,7 +24,8 @@
 
   --color-border: #0f172a1a;
 
-  --color-shadow-large: 0 8px 24px #8c959f33;
+  --shadow-small: 0 4px 12px #8c959f33;
+  --shadow-large: 0 8px 24px #8c959f33;
 
   --height-nav: 48px;
   --color-nav-text: var(--color-text-secondary);
@@ -53,6 +54,9 @@
   --color-segment-button-background-active: var(--color-background-active);
   --color-segment-button-background-selected: var(--color-background-selected);
 
+  --color-card-border: var(--color-border);
+  --card-padding: 12px;
+
   @media (prefers-color-scheme: dark) {
     & {
       --color-body-text: #f1f5f9;
@@ -73,7 +77,7 @@
 
       --color-border: #f1f5f91a;
 
-      --color-shadow-large: 0 8px 24px #000;
+      --shadow-large: 0 8px 24px #000;
     }
   }
 }
