@@ -1,0 +1,15 @@
+.toc {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.tocLinkList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    margin: 4px 0;
+  }
+}
