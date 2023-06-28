@@ -2,13 +2,13 @@ import styles from './ChapterTOC.module.scss'
 import { Card, CardBody, CardHeader, CardFooter } from '@/components/Card'
 import Link from 'next/link'
 
-function ChapterTOC({ toc, className, ...props }) {
+function ChapterTOC({ toc, compact, className, ...props }) {
   return (
-    <div className={className} {...props}>
+    <div className={(compact ? styles.compact : '') + (className ? ' ' + className: '')} {...props}>
       {toc.map(group => (
-        <Card key={group.title}>
-          <CardHeader>{group.title}</CardHeader>
-          <CardBody>
+        <Card key={group.title} className={styles.card}>
+          <CardHeader className={styles.cardHeader}>{group.title}</CardHeader>
+          <CardBody className={styles.cardBody}>
             <ul className={styles.linkList}>
               {group.children.map(item => (
                 <li key={item.href}>
@@ -17,7 +17,7 @@ function ChapterTOC({ toc, className, ...props }) {
               ))}
             </ul>
           </CardBody>
-          {group.description ? (
+          {group.description && !compact ? (
             <CardFooter>{group.description}</CardFooter>
           ) : null}
         </Card>

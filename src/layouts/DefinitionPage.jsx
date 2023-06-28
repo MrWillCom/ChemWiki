@@ -6,7 +6,7 @@ import ChapterTOC from '@/components/ChapterTOC'
 function DefinitionPageLayout({ children }) {
   return (
     <Main>
-      <ArticleView aside={<ChapterTOC toc={toc} />} content={children} />
+      <ArticleView aside={<ChapterTOC toc={toc} compact />} content={children} />
     </Main>
   )
 }
