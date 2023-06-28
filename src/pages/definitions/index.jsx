@@ -1,8 +1,8 @@
 import styles from './index.module.scss'
 import Container from '@/components/Container'
 import Main from '@/components/Main'
-import { Card, CardBody, CardHeader, CardFooter } from '@/components/Card'
 import Link from 'next/link'
+import ChapterTOC from '@/components/ChapterTOC'
 
 function DefinitionsPage() {
   const toc = [
@@ -63,24 +63,8 @@ function DefinitionsPage() {
 
   return (
     <Main>
-      <Container size="lg" className={styles.toc}>
-        {toc.map(group => (
-          <Card key={group.title}>
-            <CardHeader>{group.title}</CardHeader>
-            <CardBody>
-              <ul className={styles.tocLinkList}>
-                {group.children.map(item => (
-                  <li key={item.href}>
-                    <Link href={'/definitions' + item.href}>{item.title}</Link>
-                  </li>
-                ))}
-              </ul>
-            </CardBody>
-            {group.description ? (
-              <CardFooter>{group.description}</CardFooter>
-            ) : null}
-          </Card>
-        ))}
+      <Container size="lg">
+        <ChapterTOC toc={toc} className={styles.toc} />
       </Container>
     </Main>
   )

@@ -20,6 +20,30 @@ const withMDX = nextMDX({
 const nextConfig = {
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
   reactStrictMode: true,
+  async redirects() {
+    return [
+      {
+        source: '/definition/:slug*',
+        destination: '/definitions/:slug*',
+        permanent: true,
+      },
+      {
+        source: '/substances/sulfur',
+        destination: '/elements/S',
+        permanent: true,
+      },
+      {
+        source: '/substances/chlorine',
+        destination: '/elements/Cl',
+        permanent: true,
+      },
+      {
+        source: '/substances/bromine',
+        destination: '/elements/Br',
+        permanent: true,
+      },
+    ]
+  },
 }
 
 export default withMDX(nextConfig)
