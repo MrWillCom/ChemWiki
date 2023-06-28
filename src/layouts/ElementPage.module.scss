@@ -24,49 +24,27 @@ $aside-padding-x: 10px;
   }
 }
 
-.splitView {
+.basics {
   display: flex;
-  gap: 16px;
+  flex-direction: column;
 
   @media (max-width: 768px) {
-    flex-direction: column;
-  }
-}
-
-.aside {
-  min-width: 240px;
-  width: 240px;
-  height: max-content;
-  position: sticky;
-  top: calc(var(--height-nav) + 16px);
-
-  @media (max-width: 768px) {
-    width: auto;
-    position: static;
+    flex-direction: row;
   }
 
-  .basics {
-    display: flex;
-    flex-direction: column;
+  .title {
+    font-size: 56px;
+    text-align: right;
+    padding: 20px $aside-padding-x;
+    margin: 0;
 
     @media (max-width: 768px) {
-      flex-direction: row;
-    }
-
-    .title {
-      font-size: 56px;
-      text-align: right;
-      padding: 20px $aside-padding-x;
-      margin: 0;
-
-      @media (max-width: 768px) {
-        font-size: 48px;
-        text-align: left;
-        padding: 0;
-        display: flex;
-        align-items: center;
-        flex: 1;
-      }
+      font-size: 48px;
+      text-align: left;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      flex: 1;
     }
   }
 }
@@ -74,17 +52,5 @@ $aside-padding-x: 10px;
 .periodicTable {
   @media (max-width: 768px) {
     display: none;
-  }
-}
-
-.content {
-  flex: 1;
-
-  hr {
-    border-color: var(--color-border);
-  }
-
-  img {
-    max-width: 100%;
   }
 }

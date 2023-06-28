@@ -1,9 +1,9 @@
 import Main from '@/components/Main'
-import Container from '@/components/Container'
 import elements from '@/data/elements'
 import styles from './ElementPage.module.scss'
 import PeriodicTable from '@/components/PeriodicTable'
 import ElementGroup from '@/components/ElementGroup'
+import ArticleView from '@/components/ArticleView'
 
 function ElementPageLayout({ symbol, children }) {
   const data = elements.find(x => x.symbol === symbol)
@@ -22,8 +22,8 @@ function ElementPageLayout({ symbol, children }) {
 
   return (
     <Main>
-      <Container size="lg" className={styles.splitView}>
-        <aside className={styles.aside}>
+      <ArticleView
+        aside={
           <div className={styles.basics}>
             <h1 className={`${styles.title} katex mathnormal`}>
               {data.symbol}
@@ -42,9 +42,9 @@ function ElementPageLayout({ symbol, children }) {
               className={styles.periodicTable}
             />
           </div>
-        </aside>
-        <div className={styles.content}>{children}</div>
-      </Container>
+        }
+        content={children}
+      />
     </Main>
   )
 }

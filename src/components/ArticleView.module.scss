@@ -1,0 +1,33 @@
+.splitView {
+  display: flex;
+  gap: 16px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+}
+
+.aside {
+  min-width: 240px;
+  width: 240px;
+  height: max-content;
+  position: sticky;
+  top: calc(var(--height-nav) + 16px);
+
+  @media (max-width: 768px) {
+    width: auto;
+    position: static;
+  }
+}
+
+.content {
+  flex: 1;
+
+  hr {
+    border-color: var(--color-border);
+  }
+
+  img {
+    max-width: 100%;
+  }
+}
