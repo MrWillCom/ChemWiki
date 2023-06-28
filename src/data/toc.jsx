@@ -52,6 +52,7 @@ const definitions = [
       { title: '溶剂', href: '/solvent' },
       { title: '酸碱性', href: '/acidity' },
       { title: 'pH 值', href: '/ph' },
+      { title: '电解质', href: '/electrolyte' },
     ],
   },
 ]
