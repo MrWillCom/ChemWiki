@@ -7,12 +7,12 @@
 	"dependencies": {
 		"@vercel/analytics": "^0.1.11",
 		"lxgw-wenkai-webfont": "^1.7.0",
-		"next": "^13.3.0",
-		"nextra": "^2.4.0",
-		"nextra-theme-docs": "^2.4.0",
+		"next": "^13.4.7",
+		"nextra": "^2.8.0",
+		"nextra-theme-docs": "^2.8.0",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
-		"reactflow": "^11.7.0",
+		"reactflow": "^11.7.4",
 		"rehype-mathjax": "^4.0.2",
 		"remark-math": "^5.1.1"
 	}
