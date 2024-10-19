@@ -1,14 +1,9 @@
-import remarkMath from "remark-math";
-import rehypeMathjax from "rehype-mathjax";
 import nextra from "nextra";
 
 const withNextra = nextra({
   theme: "nextra-theme-docs",
   themeConfig: "./theme.config.jsx",
-  mdxOptions: {
-    remarkPlugins: [remarkMath],
-    rehypePlugins: [rehypeMathjax],
-  },
+  latex: {renderer: 'mathjax'}
 });
 
 export default withNextra();

@@ -1,4 +1,4 @@
-{
+export default {
   "halogen": "卤素",
   "chlorine": "氯",
   "chlorine-gas": "氯气",

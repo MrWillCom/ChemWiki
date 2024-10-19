@@ -1,37 +1,37 @@
 # 物质
 
-import { Callout, Tab, Tabs } from "nextra-theme-docs";
+import { Callout, Tab, Tabs } from "nextra/components";
 
 <Tabs items={["族", "元素", "单质", "化合物", "混合物"]}>
-  <Tab>
+  <Tabs.Tab>
 | 族                          |     |      |
 | --------------------------- | --- | ---- |
 | [卤素](/substances/halogen) | 17  | VIIA |
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
 | 元素                      | 符号      | 序数 | 族  | 周期 |
 | ------------------------- | --------- | ---- | --- | ---- |
 | [硫](/substances/sulfur)  | $\ce{S}$  | 16   | 16  | 3    |
 | [溴](/substances/bromine) | $\ce{Br}$ | 35   | 17  | 4    |
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
 | 单质                                           | 化学式     |
 | ---------------------------------------------- | ---------- |
 | [氯气](/substances/chlorine-gas)               | $\ce{Cl2}$ |
 | [溴](/substances/bromine-elementary-substance) | $\ce{Br2}$ |
 | [碘](/substances/iodine-elementary-substance)  | $\ce{I2}$  |
 | [硫](/substances/sulfur-elementary-substance)  | $\ce{S}$  |
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
     <Callout emoji="🤔">化合物索引需要更新。</Callout>
 | 化合物                                 | 组成        |
 | -------------------------------------- | ----------- |
 | [二氧化硫](/substances/sulfur-dioxide) | $\ce{S, O}$ |
-  </Tab>
-  <Tab>
+  </Tabs.Tab>
+  <Tabs.Tab>
 | 混合物                               | 组成                                          |
 | ------------------------------------ | --------------------------------------------- |
 | [氯水](/substances/chlorine-water)   | $\ce{Cl2, H2O, HClO, H^+, ClO^-, Cl^-, OH^-}$ |
 | [溴水](/substances/bromine-solution) | $\ce{Br2, H2O}$                               |
-  </Tab>
+  </Tabs.Tab>
 </Tabs>

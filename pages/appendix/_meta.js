@@ -1,4 +1,4 @@
-{
+export default {
   "symbols-for-elements": "元素符号",
   "valence": "化合价",
   "formula": "化学式",

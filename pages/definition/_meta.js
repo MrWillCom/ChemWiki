@@ -1,4 +1,4 @@
-{
+export default {
   "chemistry": "化学",
   "changes": "变化",
   "properties": "性质",

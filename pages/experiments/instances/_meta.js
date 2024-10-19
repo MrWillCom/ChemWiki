@@ -1,4 +1,4 @@
-{
+export default {
   "laboratory-preparation-of-carbon-dioxide": "二氧化碳的实验室制法",
   "decomposition-of-calcium-carbonate": "碳酸钙的分解",
   "electrolysis-of-water": "水的电解",

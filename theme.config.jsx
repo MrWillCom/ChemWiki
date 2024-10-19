@@ -29,13 +29,13 @@ export default {
     title: null,
   },
   editLink: {
-    text: '编辑本页面 ↗',
+    content: '编辑本页面 ↗',
   },
   feedback: {
     content: '有问题？前往反馈 ↗',
   },
   footer: {
-    text: <span>{new Date().getFullYear() === 2022 ? '2022' : '2022 - ' + new Date().getFullYear()} · By all <a href="https://github.com/MrWillCom/ChemWiki" target="_blank">ChemWiki</a> contributors with ❤️.</span>,
+    content: <span>{new Date().getFullYear() === 2022 ? '2022' : '2022 - ' + new Date().getFullYear()} · By all <a href="https://github.com/MrWillCom/ChemWiki" target="_blank">ChemWiki</a> contributors with ❤️.</span>,
   },
 
   useNextSeoProps() {
