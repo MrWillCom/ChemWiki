@@ -3,15 +3,17 @@ import { useConfig } from 'nextra-theme-docs'
 
 export default {
   docsRepositoryBase: 'https://github.com/MrWillCom/ChemWiki/tree/main',
-  head: () => {
-    const { asPath } = useRouter()
+  head() {
+    const { asPath, defaultLocale, locale } = useRouter()
     const { frontMatter, title } = useConfig()
+    const url =
+      'https://chemwiki.mrwillcom.com' +
+      (defaultLocale === locale ? asPath : `/${locale}${asPath}`)
+
     return (
       <>
-        <meta
-          property="og:url"
-          content={`https://chemwiki.mrwillcom.com${asPath}`}
-        />
+        <title>{title + ' · ChemWiki'}</title>
+        <meta property="og:url" content={url} />
         <meta property="og:title" content={title + ' · ChemWiki'} />
         <meta
           property="og:description"
@@ -37,8 +39,18 @@ export default {
     defaultMenuCollapseLevel: 1,
     toggleButton: true,
   },
+  themeSwitch: {
+    useOptions() {
+      return {
+        light: '浅色',
+        dark: '深色',
+        system: '跟随系统',
+      }
+    },
+  },
   toc: {
     title: null,
+    backToTop: '返回顶部',
   },
   editLink: {
     content: '编辑本页面 ↗',
@@ -59,18 +71,5 @@ export default {
         contributors with ❤️.
       </span>
     ),
-  },
-
-  useNextSeoProps() {
-    const { route } = useRouter()
-    if (route !== '/') {
-      return {
-        titleTemplate: '%s · ChemWiki',
-      }
-    } else {
-      return {
-        titleTemplate: 'ChemWiki',
-      }
-    }
   },
 }
