@@ -1,35 +1,35 @@
-import ReactFlow, { Controls, Background } from "reactflow";
+import ReactFlow, { Controls, Background } from 'reactflow'
 
 # 海带提碘
 
-<div style={{ height: "400px" }}>
+<div style={{ height: '400px' }}>
   <ReactFlow
     nodes={[
       {
-        id: "1",
-        data: { label: "干海带" },
+        id: '1',
+        data: { label: '干海带' },
         position: { x: 100, y: 20 },
       },
       {
-        id: "2",
-        data: { label: "滤液" },
+        id: '2',
+        data: { label: '滤液' },
         position: { x: 100, y: 100 },
       },
       {
-        id: "3",
-        data: { label: "粗碘" },
+        id: '3',
+        data: { label: '粗碘' },
         position: { x: 100, y: 180 },
       },
       {
-        id: "4",
-        data: { label: "碘单质" },
+        id: '4',
+        data: { label: '碘单质' },
         position: { x: 100, y: 260 },
       },
     ]}
     edges={[
-      { id: "1-2", source: "1", target: "2", label: "浸泡 过滤" },
-      { id: "2-3", source: "2", target: "3", label: "氯气 氧化" },
-      { id: "3-4", source: "3", target: "4", label: "提纯" },
+      { id: '1-2', source: '1', target: '2', label: '浸泡 过滤' },
+      { id: '2-3', source: '2', target: '3', label: '氯气 氧化' },
+      { id: '3-4', source: '3', target: '4', label: '提纯' },
     ]}
     fitView
   >

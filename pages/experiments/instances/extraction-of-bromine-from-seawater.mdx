@@ -1,42 +1,42 @@
-import { Callout } from "nextra/components";
-import ReactFlow, { Controls, Background } from "reactflow";
+import { Callout } from 'nextra/components'
+import ReactFlow, { Controls, Background } from 'reactflow'
 
 # 海水提溴
 
-<div style={{ height: "500px" }}>
+<div style={{ height: '500px' }}>
   <ReactFlow
     nodes={[
       {
-        id: "1",
-        data: { label: "海水" },
+        id: '1',
+        data: { label: '海水' },
         position: { x: 100, y: 20 },
       },
       {
-        id: "2",
-        data: { label: "苦卤" },
+        id: '2',
+        data: { label: '苦卤' },
         position: { x: 100, y: 100 },
       },
       {
-        id: "3",
-        data: { label: "含溴的苦卤" },
+        id: '3',
+        data: { label: '含溴的苦卤' },
         position: { x: 100, y: 180 },
       },
       {
-        id: "4",
-        data: { label: "含溴的空气" },
+        id: '4',
+        data: { label: '含溴的空气' },
         position: { x: 100, y: 260 },
       },
       {
-        id: "5",
-        data: { label: "粗溴" },
+        id: '5',
+        data: { label: '粗溴' },
         position: { x: 100, y: 340 },
       },
     ]}
     edges={[
-      { id: "1-2", source: "1", target: "2", label: "提取粗盐" },
-      { id: "2-3", source: "2", target: "3", label: "硫酸酸化 氯气氧化" },
-      { id: "3-4", source: "3", target: "4", label: "热空气吹出" },
-      { id: "4-5", source: "4", target: "5", label: "冷凝" },
+      { id: '1-2', source: '1', target: '2', label: '提取粗盐' },
+      { id: '2-3', source: '2', target: '3', label: '硫酸酸化 氯气氧化' },
+      { id: '3-4', source: '3', target: '4', label: '热空气吹出' },
+      { id: '4-5', source: '4', target: '5', label: '冷凝' },
     ]}
     fitView
   >
