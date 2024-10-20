@@ -1,3 +1,3 @@
 export default {
-  "kipp-s-apparatus": "启普发生器"
+  'kipp-s-apparatus': '启普发生器',
 }
